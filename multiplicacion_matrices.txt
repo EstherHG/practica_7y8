@@ -1,0 +1,102 @@
+#include <stdio.h>//libreria
+int main (){//funcion principal
+	int c1;//variabe para las columnas de la matriz 1
+	int r1;//variable para los renglones de la matriz 1
+	int c2;//variable para las columnas de la matriz 2
+	int r2;//variable para los renglones de la matriz 2
+	int cr;// variable contador renglon
+	int cc;//variable contador columna
+	int acu;//variable acumulatoria (para multiplicar)
+	int con;//variable contador (para multiplicar)
+	cr=0;//se le asigna un numero a variable contador renglon
+	cc=0;//se le asigna un numero a variable contador columna
+	printf("Introduce el numero de columnas de la matriz 1\n");//se le pide al usuario el numero de columnas de la matriz 1
+	scanf("%i",&c1);//se guarda el valor dado
+	printf("Introduce el numero de renglones de la matriz 1\n");//se le pide al usuario el numero de renglones de la matriz 1
+	scanf("%i",&r1);//se guarda el valor dado
+	int m1[r1][c1];// se declara la matriz 1 
+	while(cc<c1){//primer ciclo, se ejecuta si cc<c1
+		while(cr<r1){//segundo ciclo, se ejecuta si cr<r1
+			printf("\n");//escibir en una nueva linea
+			printf("Introduce [%i][%i] de la matriz 1\n",cr+1,cc+1);//se le pide al usuario un valor de la matriz 1
+			scanf("%i",&m1[cr][cc]);//se guarda el valor dado
+			cr=cr+1;//contador renglon se incrementa una unidad
+		}//fin del segundo ciclo
+		cr=0;//contador renglon vuelve a tomar el valor de 0
+	    cc=cc+1;//contador columna se incrementa una unidad
+	}//fin del primer ciclo
+	printf("\n");//escibir en una nueva linea
+	printf("La primera matriz es:\n");//indica que a continuacion se presentara la matriz 1
+	printf("\n");//escibir en una nueva linea
+	cr=0;//contador renglon vuelve a tomar el valor de 0
+	cc=0;//contador columna vuelve a tomar el valor de 0
+	while(cr<r1){//primer ciclo, se ejecuta si cr<r1
+		while(cc<c1){//segundo ciclo, se ejecuta si cc<c1
+			printf("%i ",m1[cr][cc]);//se imprime el valor anteriormente guardado
+			cc=cc+1;//contador columna se incrementa una unidad
+		}//fin del segundo ciclo
+		cc=0;//contador columna vuelve a tomar el valor de 0
+	    cr=cr+1;//contador renglon se incrementa una unidad
+	    printf("\n");//escibir en una nueva linea
+	}//fin del primer ciclo
+	cr=0;//contador renglon vuelve a tomar el valor de 0
+	cc=0;//contador columna vuelve a tomar el valor de 0
+	printf("\n");//escibir en una nueva linea
+	printf("Introduce el numero de columnas de la matriz 2\n");//se le pide al usuario el numero de columnas de la matriz 2
+	scanf("%i",&c2);//se guarda el valor dado
+	printf("Introduce el numero de renglones de la matriz 2\n");//se le pide al usuario el numero de renglones de la matriz 2
+	scanf("%i",&r2);//se guarda el valor dado
+	int m2[r2][c2];// se declara la matriz 2
+	while(cc<c2){//primer ciclo, se ejecuta si cc<c2
+		while(cr<r2){//segundo ciclo, se ejecuta si cr<r2
+			printf("\n");//escibir en una nueva linea
+			printf("Introduce [%i][%i] de la matriz 2\n",cr+1,cc+1);//se le pide al usuario un valor de la matriz 2
+			scanf("%i",&m2[cr][cc]);//se guarda el valor dado
+			cr=cr+1;//contador renglon se incrementa una unidad
+		}//fin del segundo ciclo
+		cr=0;//contador renglon vuelve a tomar el valor de 0
+	    cc=cc+1;//contador columna se incrementa una unidad
+	}//fin del primer ciclo
+	printf("\n");//escibir en una nueva linea
+	printf("La segunda matriz es:\n");//indica que a continuacion se presentara la matriz 2
+	printf("\n");//escibir en una nueva linea
+	cr=0;//contador renglon vuelve a tomar el valor de 0
+	cc=0;//contador columna vuelve a tomar el valor de 0
+	while(cr<r2){//primer ciclo, se ejecuta si cr<r2
+		while(cc<c2){//segundo ciclo, se ejecuta si cc<c2
+			printf(" %i ",m2[cr][cc]);//se imprime el valor anteriormente guardado
+			cc=cc+1;//contador columna se incrementa una unidad
+		}//fin del segundo ciclo
+		cc=0;//contador columna vuelve a tomar el valor de 0
+	    cr=cr+1;//contador renglon se incrementa una unidad
+	    printf("\n");//escibir en una nueva linea
+	}//fin del primer ciclo
+	int m3[100][100];// se declara la matriz 3
+	if(c1==r2){//condicion que genera dos casos
+//caso1
+		for(cr=0;cr<r1;cr++)//primer ciclo, se ejecuta si cr<r1
+			for(cc=0;cc<c1;cc++){//segundo ciclo, se ejecuta si cc<c1
+				for(acu=0,con=0;con<c2;con++)//tercer ciclo, se ejecuta si con<c2
+					acu=acu+m1[cr][con]*m2[con][cc];/*acumulador toma el valor del producto de 
+					un elemento de la matriz 1 por un elemento de la matriz 2*/
+					m3[cr][cc]=acu;//se guarda el resultado en un espacio de la matriz 3
+			}//fin del ciclo
+				printf("\n");//escibir en una nueva linea
+				printf("El resultado de la multiplicacion es:\n");//indica que a continuacion se presentara la matriz 3
+				printf("\n");//escibir en una nueva linea			
+	cr=0;//contador renglon vuelve a tomar el valor de 0
+	cc=0;//contador columna vuelve a tomar el valor de 0
+	while(cr<r1){//primer ciclo, se ejecuta si cr<r1
+		while(cc<c2){//segundo ciclo, se ejecuta si cc<c2
+			printf("  %i  ",m3[cr][cc]);//se imprime el valor anteriormente guardado
+			cc=cc+1;//contador columna se incrementa una unidad
+		}//fin del segundo ciclo
+		cc=0;//contador columna vuelve a tomar el valor de 0
+	    cr=cr+1;//contador renglon se incrementa una unidad
+	    printf("\n");//escibir en una nueva linea
+   }//fin del primer ciclo
+   }//fin caso 1
+    else {//caso 2
+    	printf("La multiplicacion no se puede efectuar");//resultado del caso 2
+	}//fin caso 2
+}//fin
